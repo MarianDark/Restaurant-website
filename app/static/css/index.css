@@ -1,12 +1,13 @@
-/* General styles */
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #ffffff;
     color: #333;
 }
 
+/* Contenedor principal */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -14,23 +15,116 @@ body {
     padding: 20px;
 }
 
-/* Header styles */
+/* Estilos del encabezado (Header) */
 header {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
     text-align: center;
-    margin-bottom: 30px;
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
+    margin-top: 0px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #443717;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 5px 2px #030303, 7px 5px 4px #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
+p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+/* Estilos de los botones del menú */
+.menu-buttons .button-container {
+    display: flex;               /* Muestra los botones en fila */
+    flex-direction: row;
+    justify-content: center;     /* Centra los botones horizontalmente */
+    gap: 40px;                   /* Espacio entre los botones */
+    margin-bottom: 15px;         /* Espacio debajo de los botones */
+}
+
+.menu-buttons .btn {
+    padding: 20px 40px;
+    background-color: #443717;   /* Color de fondo de los botones */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.menu-buttons .btn:hover {
+    background-color: #8e8367;   /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para el cajón de publicidad */
+.advertising-box {
+    width: 250px;  /* Ancho del cajón */
+    background-color: #d6d6da;  /* Color de fondo del cajón */
+    border-radius: 10px;  /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    margin: 80px 0;
+    padding: 10px;
+}
+
+/* Título "Publicidad" */
+.advertising-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #443717;  /* Color de texto */
+    text-align: center;
+    background-color: #f8b400;  /* Fondo del título */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la imagen del banner */
+.advertising-banner-container {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para la imagen del banner */
+.advertising-banner-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Barra lateral con el cajón de publicidad */
+.sidebar {
+    position: fixed;  /* Fija el cajón en el lateral derecho */
+    top: 0;
+    right: 0;
+    padding-top: 20px;
+    width: 280px;  /* Ancho del cajón */
+    z-index: 1000;  /* Asegura que se mantenga sobre otros elementos */
+}
+
+/* Estilos para el banner */
 .banner {
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 40px 0;
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -50px -50px 0px -30px rgba(0,0,0,0), -50px -50px 0px -30px rgba(0,0,0,0), 30px 30px 18px -11px rgba(0,0,0,0.74);
 }
 
 .banner-images {
@@ -46,47 +140,26 @@ h1 {
     border-radius: 10px;
 }
 
-/* Actions section styles */
-.actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn {
-    background-color: #443717;
+/* Estilos del pie de página (Footer) */
+footer {
+    background-color: #333;
     color: white;
-    padding: 15px 25px;
+    padding: 20px;
     text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
 }
 
-.btn:hover {
-    background-color: #443717;
-}
-
+/* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
-    .hero img {
-        max-width: 90%;
-    }
-
-    .actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .button-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Los botones se apilan en columna */
+        align-items: center;    /* Centra los botones */
+    }
+
+    .sidebar {
+        position: relative;  /* Hace que el cajón se mueva junto con el contenido */
+        width: 100%;  /* Ancho completo en pantallas pequeñas */
+        margin-top: 20px;
     }
 }

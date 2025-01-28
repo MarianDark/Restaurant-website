@@ -13,6 +13,23 @@
             <p>"Cada plato, una obra maestra."</p>
         </header>
 
+        <!-- Sección de botones en línea -->
+        <section class="menu-buttons">
+            <div class="button-container">
+                <!-- Botones Menú -->
+                <a href="{{ url_for('routes.menu') }}" class="btn">Menú</a>
+                <a href="{{ url_for('routes.register') }}" class="btn">Registro</a>
+                <a href="{{ url_for('routes.login') }}" class="btn">Inicia</a>
+                <!-- Condición de usuario logueado -->
+                {% if 'user_id' in session %}
+                    <a href="{{ url_for('routes.reservar') }}" class="btn">Reservar</a>
+                    <a href="{{ url_for('routes.mis_reservas') }}" class="btn">Mis Reservas</a>
+                    <a href="{{ url_for('routes.logout') }}" class="btn">Cerrar sesión</a>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Banner de imágenes -->
         <section class="banner">
             <div class="banner-images">
                 <img src="{{ url_for('static', filename='images/banner3rest.jpg') }}" alt="Restaurante 1" class="banner-image">
@@ -21,24 +38,26 @@
                 <img src="{{ url_for('static', filename='images/banner4rest.jpg') }}" alt="Restaurante 2" class="banner-image">
             </div>
         </section>
-        <section class="actions">
-            <div class="button-container">
-                <!-- Botón Menú -->
-                <a href="{{ url_for('routes.menu') }}" class="btn">Menú</a>
-        
-                <!-- Pestañas de registro e inicio de sesión -->
-                {% if 'user_id' in session %}
-                    <a href="{{ url_for('routes.reservar') }}" class="btn">Reservar</a>
-                    <a href="{{ url_for('routes.mis_reservas') }}" class="btn">Mis Reservas</a>
-                    <a href="{{ url_for('routes.logout') }}" class="btn">Cerrar sesión</a>
-                {% else %}
-                    <a href="{{ url_for('routes.register') }}" class="btn">Registro</a>
-                    <a href="{{ url_for('routes.login') }}" class="btn">Iniciar sesión</a>
-                {% endif %}
-            </div>
-        </section>
     </div>
+
+    <!-- Banner de publicidad lateral derecho -->
+    <aside class="sidebar">
+        <div class="advertising-box">
+            <h3 class="advertising-title">Publicidad</h3>
+            <div class="advertising-banner-container">
+                <a href="    https://amzn.eu/d/brpLwbE">
+                    <img src="https://m.media-amazon.com/images/I/81guVJ0ZagL._SY522_.jpg" alt="Publicidad de Amazon" />
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Scripts -->
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <footer>
+        <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
