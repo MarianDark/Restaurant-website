@@ -26,17 +26,24 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Hero section styles */
-.hero {
-    text-align: center;
-    margin-bottom: 30px;
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
 }
 
-.hero img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.banner-images {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
 
+.banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 10px;
 }
 
 /* Actions section styles */

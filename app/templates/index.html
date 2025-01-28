@@ -9,14 +9,18 @@
 <body>
     <div class="container">
         <header>
-            <h1>¡Bienvenido a Élyséum!</h1>
+            <h1>Restaurant Élyséum</h1>
+            <p>"Cada plato, una obra maestra."</p>
         </header>
 
-        <section class="hero">
-            <!-- Imagen del restaurante -->
-            <img src="{{ url_for('static', filename='images/rest2.jpg') }}" alt="Restaurante Élyséum">
+        <section class="banner">
+            <div class="banner-images">
+                <img src="{{ url_for('static', filename='images/banner3rest.jpg') }}" alt="Restaurante 1" class="banner-image">
+                <img src="{{ url_for('static', filename='images/banner2comida.jpg') }}" alt="Comida 1" class="banner-image">
+                <img src="{{ url_for('static', filename='images/banner1postre.jpg') }}" alt="Comida 2" class="banner-image">
+                <img src="{{ url_for('static', filename='images/banner4rest.jpg') }}" alt="Restaurante 2" class="banner-image">
+            </div>
         </section>
-
         <section class="actions">
             <div class="button-container">
                 <!-- Botón Menú -->
@@ -34,5 +38,7 @@
             </div>
         </section>
     </div>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
