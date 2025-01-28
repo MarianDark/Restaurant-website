@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Élyséum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Menú de Élyséum</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('routes.index_page') }}">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de comidas -->
+        <section>
+            <h2>Comidas</h2>
+            {% if comidas %}
+                <ul>
+                    {% for comida in comidas %}
+                        <li>
+                            <h3>{{ comida.nombre }}</h3>
+                            <img src="{{ url_for('static', filename=comida.imagen) }}" alt="{{ comida.nombre }}" class="menu-image">
+                            <p>{{ comida.descripcion }}</p>
+                            <p>Precio: ${{ comida.precio }}</p>
+                            <p>Puntuación: {{ comida.puntuacion }} estrellas</p>
+                            <form action="{{ url_for('routes.menu') }}" method="POST">
+                                <label for="puntuacion_comida_{{ comida.id }}">Puntuación:</label>
+                                <input type="number" id="puntuacion_comida_{{ comida.id }}" name="puntuacion" min="1" max="5" step="0.1" required>
+                                <button type="submit">Valorar</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay comidas disponibles en este momento.</p>
+            {% endif %}
+        </section>
+
+        <!-- Sección de bebidas -->
+        <section>
+            <h2>Bebidas</h2>
+            {% if bebidas %}
+                <ul>
+                    {% for bebida in bebidas %}
+                        <li>
+                            <h3>{{ bebida.nombre }}</h3>
+                            <p>{{ bebida.descripcion }}</p>
+                            <p>Precio: ${{ bebida.precio }}</p>
+                            <p>Puntuación: {{ bebida.puntuacion }} estrellas</p>
+                            <form action="{{ url_for('routes.menu') }}" method="POST">
+                                <label for="puntuacion_bebida_{{ bebida.id }}">Puntuación:</label>
+                                <input type="number" id="puntuacion_bebida_{{ bebida.id }}" name="puntuacion" min="1" max="5" step="0.1" required>
+                                <button type="submit">Valorar</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay bebidas disponibles en este momento.</p>
+            {% endif %}
+        </section>
+
+        <!-- Sección de postres -->
+        <section>
+            <h2>Postres</h2>
+            {% if postres %}
+                <ul>
+                    {% for postre in postres %}
+                        <li>
+                            <h3>{{ postre.nombre }}</h3>
+                            <img src="{{ url_for('static', filename=postre.imagen) }}" alt="{{ postre.nombre }}" class="postre-image">
+                            <p>{{ postre.descripcion }}</p>
+                            <p>Precio: ${{ postre.precio }}</p>
+                            <p>Puntuación: {{ postre.puntuacion }} estrellas</p>
+                            <form action="{{ url_for('routes.menu') }}" method="POST">
+                                <label for="puntuacion_postre_{{ postre.id }}">Puntuación:</label>
+                                <input type="number" id="puntuacion_postre_{{ postre.id }}" name="puntuacion" min="1" max="5" step="0.1" required>
+                                <button type="submit">Valorar</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No hay postres disponibles en este momento.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

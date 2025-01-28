@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Élyséum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>¡Bienvenido a Élyséum!</h1>
+        </header>
+
+        <section class="hero">
+            <!-- Imagen del restaurante -->
+            <img src="{{ url_for('static', filename='images/rest2.jpg') }}" alt="Restaurante Élyséum">
+        </section>
+
+        <section class="actions">
+            <div class="button-container">
+                <!-- Botón Menú -->
+                <a href="{{ url_for('routes.menu') }}" class="btn">Menú</a>
+        
+                <!-- Pestañas de registro e inicio de sesión -->
+                {% if 'user_id' in session %}
+                    <a href="{{ url_for('routes.reservar') }}" class="btn">Reservar</a>
+                    <a href="{{ url_for('routes.mis_reservas') }}" class="btn">Mis Reservas</a>
+                    <a href="{{ url_for('routes.logout') }}" class="btn">Cerrar sesión</a>
+                {% else %}
+                    <a href="{{ url_for('routes.register') }}" class="btn">Registro</a>
+                    <a href="{{ url_for('routes.login') }}" class="btn">Iniciar sesión</a>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+</body>
+</html>

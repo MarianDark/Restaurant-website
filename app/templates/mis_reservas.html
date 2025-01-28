@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reservas - Élyséum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mis_reservas.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Élyséum</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('routes.index_page') }}">Inicio</a></li>
+                <li><a href="{{ url_for('routes.menu') }}">Menú</a></li>
+                <li><a href="{{ url_for('routes.reservar') }}">Reservar</a></li>
+                <li><a href="{{ url_for('routes.logout') }}">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Tus Reservas</h2>
+
+        {% if reservas %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Número de Personas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reserva in reservas %}
+                        <tr>
+                            <td>{{ reserva.fecha.strftime('%d/%m/%Y') }}</td>
+                            <td>{{ reserva.hora.strftime('%H:%M') }}</td>
+                            <td>{{ reserva.numero_personas }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No tienes reservas en este momento.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

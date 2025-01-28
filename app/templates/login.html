@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Élyséum</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Élyséum</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('routes.index_page') }}">Inicio</a></li>
+                <li><a href="{{ url_for('routes.register') }}">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <h2>Iniciar sesión</h2>
+            <form method="POST" action="{{ url_for('routes.login') }}">
+                <label for="correo">Correo electrónico:</label>
+                <input 
+                    type="email" 
+                    id="correo" 
+                    name="correo" 
+                    placeholder="Ingresa tu correo" 
+                    aria-describedby="correoHelp" 
+                    required>
+                <small id="correoHelp">Nunca compartiremos tu correo con nadie.</small>
+                <br><br>
+
+                <label for="password">Contraseña:</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="Ingresa tu contraseña" 
+                    required>
+                <br><br>
+
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

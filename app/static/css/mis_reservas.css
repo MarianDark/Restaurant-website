@@ -1,0 +1,47 @@
+/* Estilos para mis_reservas.html */
+
+/* Tabla de reservas */
+table {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+table th {
+    background-color: #333;
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Mensaje para listas vacías */
+p {
+    text-align: center;
+    color: #666;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
