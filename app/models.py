@@ -13,7 +13,7 @@ class Cliente(db.Model):
     telefono = db.Column(db.String(15), nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
 
-    # Relación con reservas
+# Relación con reservas
     reservas = db.relationship('Reserva', backref='cliente', lazy=True)
 
     def set_password(self, password):
@@ -40,7 +40,7 @@ class Reserva(db.Model):
     hora = db.Column(db.Time, nullable=False)
     numero_personas = db.Column(db.Integer, nullable=False)
 
-    # Relación con clientes
+# Relación con clientes
     cliente_id = db.Column(db.Integer, db.ForeignKey('clientes.id'), nullable=False)
 
     def __repr__(self):
