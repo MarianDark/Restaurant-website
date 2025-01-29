@@ -1,165 +1,230 @@
-/* Estilos generales */
+html,
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #333;
+  height: 100%;  
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
 }
 
-/* Contenedor principal */
+/* Contenedor principal: Permite que el contenido crezca y haga scroll */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%; /* Se ajusta al ancho de la pantalla */
+  min-height: calc(100vh - 100px); /* Resta la altura del header y footer */
+  padding: 20px;
+  overflow-y: auto; /* Habilita el scroll si el contenido crece */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
 }
 
-/* Estilos del encabezado (Header) */
+/* Estilos del header */
 header {
-    background-color: #333;
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
-    margin-top: 0px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
 }
 
+/* Contenedor del header */
+.header-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  gap: 15px; /* Espacio entre los elementos del header */
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.auth-buttons .btn {
+  padding: 10px 20px;
+  background-color: #443717;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 120px; /* Mantiene los botones del mismo tamaño */
+  text-align: center;
+  transition: background-color 0.3s ease;
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    15px 12px 9px 0px rgba(0, 0, 0, 0.81);
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    15px 12px 9px 0px rgba(0, 0, 0, 0.81);
+}
+
+.auth-buttons .btn:hover {
+  background-color: #8e8367;
+}
+
+.registro-texto {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin-top: 60px; /* Separa el texto de los botones */
+  background-color: #777676; /* Fondo claro para resaltar */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: -50px;
+}
+
+/* Títulos */
 h1 {
-    font-size: 3rem;
-    color: #443717;
-    text-shadow: 3px 5px 2px #030303, 7px 5px 4px #000000;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    font-weight: 700;
-    text-transform: uppercase;
+  font-size: 3rem;
+  color: #443717;
+  text-shadow: 3px 5px 2px #030303, 7px 5px 4px #000000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 p {
-    font-size: 1.8rem;
-    margin-top: 10px;
-    font-family: Georgia, serif;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    color: #000000;
-    font-weight: 700;
-    font-style: italic;
-    text-transform: capitalize;
+  font-size: 1.8rem;
+  margin-top: 10px;
+  font-family: Georgia, serif;
+  color: #000000;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: capitalize;
 }
 
 /* Estilos de los botones del menú */
 .menu-buttons .button-container {
-    display: flex;               /* Muestra los botones en fila */
-    flex-direction: row;
-    justify-content: center;     /* Centra los botones horizontalmente */
-    gap: 40px;                   /* Espacio entre los botones */
-    margin-bottom: 15px;         /* Espacio debajo de los botones */
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones se ajusten */
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
 }
 
 .menu-buttons .btn {
-    padding: 20px 40px;
-    background-color: #443717;   /* Color de fondo de los botones */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  padding: 20px 40px;
+  background-color: #443717;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+  width: 150px; /* Tamaño uniforme */
+  height: 30px;
+  text-align: center;
+  margin-top: -150px; /* Ajusta la distancia desde el header */
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    15px 12px 9px 0px rgba(0, 0, 0, 0.81);
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    15px 12px 9px 0px rgba(0, 0, 0, 0.81);
 }
 
 .menu-buttons .btn:hover {
-    background-color: #8e8367;   /* Color de fondo al pasar el ratón */
+  background-color: #8e8367;
 }
 
-/* Estilos para el cajón de publicidad */
-.advertising-box {
-    width: 250px;  /* Ancho del cajón */
-    background-color: #d6d6da;  /* Color de fondo del cajón */
-    border-radius: 10px;  /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
-    margin: 80px 0;
-    padding: 10px;
-}
-
-/* Título "Publicidad" */
-.advertising-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #443717;  /* Color de texto */
-    text-align: center;
-    background-color: #f8b400;  /* Fondo del título */
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* Contenedor de la imagen del banner */
-.advertising-banner-container {
-    width: 100%;
-    height: auto;
-}
-
-/* Estilos para la imagen del banner */
-.advertising-banner-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-/* Barra lateral con el cajón de publicidad */
-.sidebar {
-    position: fixed;  /* Fija el cajón en el lateral derecho */
-    top: 0;
-    right: 0;
-    padding-top: 20px;
-    width: 280px;  /* Ancho del cajón */
-    z-index: 1000;  /* Asegura que se mantenga sobre otros elementos */
-}
-
-/* Estilos para el banner */
+/* Estilos del banner */
 .banner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin: 40px 0;
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, -50px -50px 0px -30px rgba(0,0,0,0), -50px -50px 0px -30px rgba(0,0,0,0), 30px 30px 18px -11px rgba(0,0,0,0.74);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 40px 0;
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
 }
 
 .banner-images {
-    display: flex;
-    transition: transform 1s ease-in-out;
+  display: flex;
+  transition: transform 1s ease-in-out;
 }
 
 .banner-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    flex-shrink: 0;
-    border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
 }
 
-/* Estilos del pie de página (Footer) */
+/* Footer */
 footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9em;
-    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
+  background-color: #333;
+  color: white;
+  padding: 10px 0; /* Reduce el tamaño del footer */
+  text-align: center;
+  font-size: 0.5em;
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  position: relative; /* Cambiar a fixed si deseas que siempre esté visible */
+  bottom: 0;
+  height: 10%;
 }
 
-/* Media queries para pantallas pequeñas */
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: column; /* Los botones se apilan en columna */
-        align-items: center;    /* Centra los botones */
-    }
+/* Estilo del párrafo dentro del footer */
+footer p {
+  margin: 0; /* Elimina márgenes externos */
+  font-family: "Arial", sans-serif; /* Fuente legible */
+  letter-spacing: 1px; /* Espaciado entre letras para elegancia */
+  color: #060606; /* Color gris claro para el texto */
+  font-size: 15px;
+}
 
-    .sidebar {
-        position: relative;  /* Hace que el cajón se mueva junto con el contenido */
-        width: 100%;  /* Ancho completo en pantallas pequeñas */
-        margin-top: 20px;
-    }
+/* Media Queries */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px; /* Ajusta el espacio en pantallas pequeñas */
+  }
+
+  .auth-buttons {
+    justify-content: center; /* Centra los botones en pantallas pequeñas */
+  }
+
+  .menu-buttons .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    position: relative; /* Cambia la posición del sidebar */
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem; /* Reduce el tamaño del título en pantallas muy pequeñas */
+  }
+
+  p {
+    font-size: 1.2rem; /* Reduce el tamaño del subtítulo */
+  }
+
+  .auth-buttons .btn {
+    width: 100%; /* Los botones ocupan todo el ancho */
+    padding: 10px;
+  }
 }

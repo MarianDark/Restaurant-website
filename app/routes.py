@@ -82,7 +82,7 @@ def reservar():
         cliente = Cliente.query.filter_by(correo=correo_cliente).first()
         if not cliente:
             cliente = Cliente(nombre=nombre_cliente, correo=correo_cliente, telefono=telefono_cliente)
-            cliente.set_password("default_password")  # Generar una contraseña temporal o comunicarla al usuario
+            cliente.set_password("default_password")
             db.session.add(cliente)
             db.session.commit()
 
@@ -100,10 +100,9 @@ def reservar():
 
     return render_template("reservar.html")
 
-# routes.py
+# Ruta para ver reservas del usuario
 @bp.route('/mis-reservas', methods=['GET'], endpoint='mis_reservas')
 def mis_reservas():
-    # Obtener las reservas del usuario actual (requiere autenticación)
     if 'user_id' not in session:
         flash("Por favor, inicia sesión para ver tus reservas.", "warning")
         return redirect(url_for('routes.login'))
@@ -113,9 +112,8 @@ def mis_reservas():
         flash("No se encontró información del usuario.", "danger")
         return redirect(url_for('routes.index_page'))
     
-    reservas = cliente.reservas  # Relación definida en models.py
+    reservas = cliente.reservas
     return render_template('mis_reservas.html', reservas=reservas)
-
 
 # Ruta para cerrar sesión
 @bp.route('/logout', methods=['GET'], endpoint='logout')

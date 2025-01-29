@@ -1,41 +1,54 @@
-/* Estilos para login.html */
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* Encabezado */
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    background-color: #444;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 20px;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+.auth-buttons {
+    display: flex;
+    gap: 15px;
 }
 
-header nav ul li a {
+.auth-buttons .btn {
+    background-color: #060606;
     color: white;
     text-decoration: none;
-    font-size: 1em;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-header nav ul li a:hover,
-header nav ul li a:focus {
-    background-color: #666;
-    color: #fff;
+.auth-buttons .btn:hover {
+    background-color: #443717;
 }
 
 /* Contenido principal */
@@ -52,11 +65,11 @@ main {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
 }
 
 h2 {
-    color: #333;
+    color: #443717;
 }
 
 /* Formularios */
@@ -67,7 +80,7 @@ form {
 }
 
 label {
-    font-size: 0.9em;
+    font-size: 1em;
     display: block;
     margin-bottom: 5px;
 }
@@ -83,18 +96,18 @@ input[type="email"], input[type="password"] {
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #333;
+    border-color: #443717;
     outline: none;
     box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.3);
 }
 
 /* Botones */
 button {
-    background-color: #333;
+    background-color: #443717;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s;
@@ -102,7 +115,7 @@ button {
 
 button:hover,
 button:focus {
-    background-color: #555;
+    background-color: #8e8367;
     outline: none;
 }
 
@@ -110,19 +123,24 @@ button:focus {
 footer {
     text-align: center;
     margin-top: 20px;
-    color: #666;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    width: 100%;
     font-size: 0.9em;
+    box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000;
 }
 
 /* Responsividad */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.3em;
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
     }
 
-    header nav ul li {
-        display: block;
-        margin: 10px 0;
+    .header-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .login-form {
@@ -139,9 +157,5 @@ footer {
 
     button {
         font-size: 0.9em;
-    }
-
-    footer {
-        font-size: 0.8em;
     }
 }

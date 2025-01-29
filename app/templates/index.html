@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bienvenido a Élyséum</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Restaurant Élyséum</h1>
-            <p>"Cada plato, una obra maestra."</p>
-        </header>
-
-        <!-- Sección de botones en línea -->
-        <section class="menu-buttons">
-            <div class="button-container">
-                <!-- Botones Menú -->
-                <a href="{{ url_for('routes.menu') }}" class="btn">Menú</a>
-                <a href="{{ url_for('routes.register') }}" class="btn">Registro</a>
-                <a href="{{ url_for('routes.login') }}" class="btn">Inicia</a>
-                <!-- Condición de usuario logueado -->
-                {% if 'user_id' in session %}
-                    <a href="{{ url_for('routes.reservar') }}" class="btn">Reservar</a>
-                    <a href="{{ url_for('routes.mis_reservas') }}" class="btn">Mis Reservas</a>
-                    <a href="{{ url_for('routes.logout') }}" class="btn">Cerrar sesión</a>
-                {% endif %}
-            </div>
-        </section>
-
-        <!-- Banner de imágenes -->
-        <section class="banner">
-            <div class="banner-images">
-                <img src="{{ url_for('static', filename='images/banner3rest.jpg') }}" alt="Restaurante 1" class="banner-image">
-                <img src="{{ url_for('static', filename='images/banner2comida.jpg') }}" alt="Comida 1" class="banner-image">
-                <img src="{{ url_for('static', filename='images/banner1postre.jpg') }}" alt="Comida 2" class="banner-image">
-                <img src="{{ url_for('static', filename='images/banner4rest.jpg') }}" alt="Restaurante 2" class="banner-image">
-            </div>
-        </section>
-    </div>
-
-    <!-- Banner de publicidad lateral derecho -->
-    <aside class="sidebar">
-        <div class="advertising-box">
-            <h3 class="advertising-title">Publicidad</h3>
-            <div class="advertising-banner-container">
-                <a href="    https://amzn.eu/d/brpLwbE">
-                    <img src="https://m.media-amazon.com/images/I/81guVJ0ZagL._SY522_.jpg" alt="Publicidad de Amazon" />
-                </a>
-            </div>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Restaurant Élyséum</h1>
+        <p>"Cada plato, una obra maestra."</p>
+        <div class="auth-buttons">
+          <a href="{{ url_for('routes.register') }}" class="btn">Registro</a>
+          <a href="{{ url_for('routes.login') }}" class="btn">Inicio</a>
         </div>
-    </aside>
+      </div>
+    </header>
 
-    <!-- Scripts -->
+    <div class="container">
+      <!-- Sección de botones en línea -->
+      <section class="menu-buttons">
+        <div class="button-container">
+          <a href="{{ url_for('routes.menu') }}" class="btn">MENÚ</a>
+          {% if 'user_id' in session %}
+          <a href="{{ url_for('routes.reservar') }}" class="btn">Reservar</a>
+          <a href="{{ url_for('routes.mis_reservas') }}" class="btn">Mis Reservas</a>
+          <a href="{{ url_for('routes.logout') }}" class="btn">Cerrar sesión</a>
+          {% else %}
+          <p class="registro-texto">Realiza tu registro o inicia sesión para hacer tu reserva</p>
+      {% endif %}
+        </div>
+      </section>
+
+      <!-- Banner de imágenes -->
+      <section class="banner">
+        <div class="banner-images">
+          <img
+            src="{{ url_for('static', filename='images/banner3rest.jpg') }}"
+            alt="Restaurante 1"
+            class="banner-image"
+          />
+          <img
+            src="{{ url_for('static', filename='images/banner2comida.jpg') }}"
+            alt="Comida 1"
+            class="banner-image"
+          />
+          <img
+            src="{{ url_for('static', filename='images/banner1postre.jpg') }}"
+            alt="Comida 2"
+            class="banner-image"
+          />
+          <img
+            src="{{ url_for('static', filename='images/banner4rest.jpg') }}"
+            alt="Restaurante 2"
+            class="banner-image"
+          />
+        </div>
+      </section>
+    </div>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     <footer>
-        <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
     </footer>
-</body>
+  </body>
 </html>
