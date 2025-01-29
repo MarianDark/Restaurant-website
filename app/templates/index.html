@@ -66,7 +66,35 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     <footer>
-      <p>&copy; 2025 Élyséum. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <!-- Información del Restaurante -->
+            <div class="footer-info">
+                <p><strong>Horario:</strong></p>
+                <p>Lunes: Cerrado</p>
+                <p>Martes a Domingo: 13:30 - 16:30 | 19:30 - 00:00</p>
+                <p><strong>Dirección:</strong> Calle La Locura 24, Madrid</p>
+            </div>
+    
+            <!-- Enlaces de Política y Contacto -->
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+    
+            <!-- Iconos de Redes Sociales -->
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='/images/facebook.png') }}" alt="Facebook">
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener">
+                    <img src="{{ url_for('static', filename='images/instagram.png') }}" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    
+        <!-- Derechos de Autor -->
+        <p class="footer-copy">&copy; 2025 Élyséum. Todos los derechos reservados.</p>
     </footer>
+    
   </body>
 </html>
